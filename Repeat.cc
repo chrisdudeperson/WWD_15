@@ -1,4 +1,4 @@
-#include "Repeat.h"
+#include "Repeat.hh"
 
 
 Repeat::Repeat()
