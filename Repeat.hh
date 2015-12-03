@@ -1,9 +1,14 @@
 #pragma once
 #include "Command.hh"
-class Repeat :
-	public Command
+#include "Program.hh"
+
+class Repeat :  public Command
 {
+private:
+	Program prog;
+
 public:
-	Repeat();
+	Repeat(double arg, Program p);
 	~Repeat();
+	void exec();
 };

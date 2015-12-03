@@ -1,10 +1,8 @@
 #include "Command.hh"
 
-
-Command::Command()
+Command::Command(double arg) : arg(arg)
 {
 }
-
 
 Command::~Command()
 {

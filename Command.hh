@@ -1,7 +1,12 @@
 #pragma once
+
 class Command
 {
+protected:
+	double arg;
+
 public:
-	Command();
-	~Command();
+	Command(double arg);
+	virtual ~Command();
+	virtual void exec(bool) = 0;
 };
