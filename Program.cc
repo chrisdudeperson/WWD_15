@@ -1,3 +1,20 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+#include "Program.hh"
+
+Program::Program()
+{
+}
+
+Program::~Program()
+{
+}
+
+void Program::run()
+{
+=======
+>>>>>>> origin/master
 #include <iostream>
 #include <string>
 #include <map>
