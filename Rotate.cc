@@ -1,7 +1,7 @@
 #include "Rotate.hh"
 #include <iostream>
 #include <OpenGL/gl.h>
-Rotate::Rotate(double angle, bool l): Command(arg), left(l)
+Rotate::Rotate(double angle, bool l): Command(angle), left(l)
 {
 }
 

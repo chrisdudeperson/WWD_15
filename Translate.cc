@@ -3,7 +3,7 @@
 #include <iostream>
 #include <OpenGL/gl.h>
 
-Translate::Translate(double distance, bool d): Command(arg) , draw(d)
+Translate::Translate(double distance, bool d): Command(distance) , draw(d)
 {
 }
 
