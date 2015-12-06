@@ -1,14 +1,25 @@
-#pragma once
-#include <vector>
-#include "Command.hh"
+#ifndef Program_hh
+#define Program_hh
 
-class Program
-{
+#include <iostream>
+#include <vector>
+
+#include <Command.h>
+
+class Program{
 private:
-	std::vector<Command> commands;
+    std::vector<std::command> commands;
 
 public:
+	//Default constructor
 	Program();
+	//Destructor
 	~Program();
+
+	//Executes each command in turn
 	void run();
+
+    friend std::istream& operator>> (std::istream& in, Program& p);
 };
+
+#endif
