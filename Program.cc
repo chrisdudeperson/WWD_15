@@ -2,6 +2,9 @@
 #include <string>
 
 #include "Program.hh"
+#include "Repeat.hh"
+#include "Rotate.hh"
+#include "Translate.hh"
 
 using namespace std;
 
@@ -20,26 +23,36 @@ Program::~Program(){
 }
 
 void Program::run(){
-
+    for(int i(0); i<commands.size(); i++){
+        commands[i]->exec();
+    }
 }
 
 istream& operator>> (istream& in, Program& p){
 	string s;
 	int arg;
+    Command* p_cmd;
 
 	while (!in.eof()) {
 		in >> s;
 		in >> arg;
 		if (!in.fail()){
-			//cout << "Switching on: " << s << " Maps to: " << commandStringMap[s] << endl;
             if (s == "FORWARD"){
                 cout<< "create a forward command with argument [" << arg << "]" << endl;
+                Translate cmd(arg, true);
+                p_cmd = &cmd;
             } else if (s == "JUMP"){
                 cout<< "create a jump command with argument [" << arg << "]" << endl;
+                Translate cmd(arg, false);
+                p_cmd = &cmd;
 			} else if (s == "LEFT"){
 				cout<< "create a left command with argument [" << arg << "]" << endl;
+                Rotate cmd(arg, true);
+                p_cmd = &cmd;
 			} else if (s == "RIGHT"){
-				cout<< "create a right command with argument [" << arg << "]" << endl;
+                cout<< "create a right command with argument [" << arg << "]" << endl;
+                Rotate cmd(arg, false);
+                p_cmd = &cmd;
 			} else if (s == "REPEAT"){
 				cout<< "create a repeat command with argument [" << arg << "]" << endl;
 			} else {
@@ -57,6 +70,8 @@ istream& operator>> (istream& in, Program& p){
 					cout << "EOF Reached" << endl;
 				}
 			}
+            //Slice the command back to the base object and push to the vector
+            p.commands.push_back(p_cmd);
 		} else {
 			if (in.eof())
 				cout << "Finished reading file!" << endl;

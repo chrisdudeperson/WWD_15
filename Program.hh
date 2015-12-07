@@ -4,9 +4,11 @@
 #include <iostream>
 #include <vector>
 
+#include "Command.hh"
+
 class Program{
 private:
-    std::vector<std::string> commands;
+    std::vector<Command *> commands;
 
 public:
 	//Default constructor
