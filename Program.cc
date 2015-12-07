@@ -6,9 +6,18 @@
 
 using namespace std;
 
+class BadFileException{};
+class BadCommandException{};
+
 //Default constructor
 Program::Program(){
-
+	commandStringMap = {
+		{ "FORWARD", FORWARD },
+		{ "JUMP", JUMP },
+		{ "LEFT", LEFT },
+		{ "RIGHT", RIGHT },
+		{ "REPEAT", REPEAT }
+	};
 }
 
 //Destructor
@@ -22,44 +31,28 @@ void Program::run(){
 }
 
 istream& operator>> (istream& in, Program& p){
-	static enum commandString {
-		NOTDEFINED,
-		FORWARD,
-		JUMP,
-		LEFT,
-		RIGHT,
-		REPEAT
-	};
-	static std::map<std::string, commandString> commandStringMap = {
-		{"FORWARD",	FORWARD},
-		{"JUMP",	JUMP},
-		{"LEFT",	LEFT},
-		{"RIGHT",	RIGHT},
-		{"REPEAT",	REPEAT}
-	};
 	string s;
 	int arg;
-
 
 	while (!in.eof()) {
 		in >> s;
 		in >> arg;
 		if (!in.fail()){
 			//cout << "Switching on: " << s << " Maps to: " << commandStringMap[s] << endl;
-			switch (commandStringMap[s]){
-				case FORWARD:
+			switch (Program::commandStringMap[s]){
+			case Program::commandString::FORWARD:
 					cout<< "create a forward command with argument [" << arg << "]" << endl;
 					break;
-				case JUMP:
+			case Program::commandString::JUMP:
 					cout<< "create a jump command with argument [" << arg << "]" << endl;
 					break;
-				case LEFT:
+			case Program::commandString::LEFT:
 					cout<< "create a left command with argument [" << arg << "]" << endl;
 					break;
-				case RIGHT:
+			case Program::commandString::RIGHT:
 					cout<< "create a right command with argument [" << arg << "]" << endl;
 					break;
-				case REPEAT:
+			case Program::commandString::REPEAT:
 					cout<< "create a repeat command with argument [" << arg << "]" << endl;
 					break;
 				default:
@@ -68,8 +61,10 @@ istream& operator>> (istream& in, Program& p){
 						//There is something wrong with the file
 						if (in.fail()){
 							//Read failed due to bad file
+							throw BadFileException();
 						} else {
 							//Invalid command in file
+							throw BadCommandException();
 						}
 					} else {
 						cout << "EOF Reached" << endl;

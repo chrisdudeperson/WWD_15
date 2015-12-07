@@ -13,8 +13,8 @@ void draw()
 {
     for(int i=0; i<10; i++)
     {
-        Translate *t;
-        Rotate *r;
+        Translate t(1, true);
+        Rotate r(1, true);
         
     }
 

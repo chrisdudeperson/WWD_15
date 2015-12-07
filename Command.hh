@@ -8,5 +8,5 @@ protected:
 public:
 	Command(double arg);
 	virtual ~Command();
-	virtual void exec(bool) = 0;
+	virtual void exec() = 0;
 };
