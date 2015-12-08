@@ -13,7 +13,6 @@ Program P;
 
 int main(int argc, char** argv)
 {
-    window w(argc, argv);
     string fname = argv[1], output;
     cout << "Reading file [" << fname << "]" << endl;
     ifstream file(fname);
@@ -24,11 +23,14 @@ int main(int argc, char** argv)
     }
     
     file >> P;
+    
+    window w(argc, argv);
 
     return 0;
 }
 
 void draw()
 {
+    cout << "Entered draw funciton" << endl;
     P.run();
 }
