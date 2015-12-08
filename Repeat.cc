@@ -10,5 +10,8 @@ Repeat::~Repeat()
 
 void Repeat::exec() 
 {
-	prog.run();
+    for(int i(0); i < arg; i++)
+    {
+        prog.run();
+    }
 }
