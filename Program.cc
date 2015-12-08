@@ -19,11 +19,12 @@ Program::Program(){
 //Destructor
 Program::~Program(){
 	//check for npe
-    //delete commands;
+    //delete commands in vector
 }
 
 void Program::run(){
     for(int i(0); i<commands.size(); i++){
+        cout << "Executing " << i << " command" << endl;
         commands[i]->exec();
     }
 }
@@ -39,20 +40,17 @@ istream& operator>> (istream& in, Program& p){
 		if (!in.fail()){
             if (s == "FORWARD"){
                 cout<< "create a forward command with argument [" << arg << "]" << endl;
-                Translate cmd(arg, true);
-                p_cmd = &cmd;
+                p_cmd = new Translate(arg, true);
             } else if (s == "JUMP"){
                 cout<< "create a jump command with argument [" << arg << "]" << endl;
-                Translate cmd(arg, false);
-                p_cmd = &cmd;
+                p_cmd = new Translate(arg, false);
 			} else if (s == "LEFT"){
 				cout<< "create a left command with argument [" << arg << "]" << endl;
-                Rotate cmd(arg, true);
-                p_cmd = &cmd;
+                p_cmd = new Rotate(arg, true);
+                //p_cmd = &cmd;
 			} else if (s == "RIGHT"){
                 cout<< "create a right command with argument [" << arg << "]" << endl;
-                Rotate cmd(arg, false);
-                p_cmd = &cmd;
+                p_cmd = new Rotate(arg, false);
 			} else if (s == "REPEAT"){
 				cout<< "create a repeat command with argument [" << arg << "]" << endl;
 			} else {
