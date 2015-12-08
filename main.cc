@@ -13,7 +13,7 @@ Program P;
 
 int main(int argc, char** argv)
 {
-    string fname = argv[1], output;
+    char* fname = argv[1];
     cout << "Reading file [" << fname << "]" << endl;
     ifstream file(fname);
     
