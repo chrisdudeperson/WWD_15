@@ -1,7 +1,8 @@
 #include "Repeat.hh"
 
-Repeat::Repeat(double arg, Program p) : Command(arg), prog(p)
+Repeat::Repeat(double arg, std::istream& in) : Command(arg)
 {
+	in >> prog;
 }
 
 Repeat::~Repeat()

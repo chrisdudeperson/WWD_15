@@ -1,7 +1,8 @@
+#include <iostream>
+#include <GL/glut.h>
+
 #include "Translate.hh"
 #include "Command.hh"
-#include <iostream>
-#include <OpenGL/gl.h>
 
 Translate::Translate(double distance, bool d): Command(distance) , draw(d)
 {
@@ -9,7 +10,6 @@ Translate::Translate(double distance, bool d): Command(distance) , draw(d)
 
 Translate::~Translate()
 {
-    
 }
 
 void Translate::exec()

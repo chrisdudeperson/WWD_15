@@ -1,10 +1,14 @@
-#ifndef Program_hh
-#define Program_hh
+#ifndef __PROGRAM_HH__
+#define __PROGRAM_HH__
 
 #include <iostream>
 #include <vector>
+#include <map>
 
 #include "Command.hh"
+
+class BadFileException{};
+class BadCommandException{};
 
 class Program{
 private:
@@ -23,4 +27,4 @@ public:
     friend std::istream& operator>> (std::istream& in, Program& p);
 };
 
-#endif
+#endif /*__PROGRAM_HH__*/
