@@ -16,7 +16,7 @@ Program::Program()
 //Destructor
 Program::~Program()
 {
-	for (int i = 0; i < commands.size(); i++) {
+	for (int i(0)); i < commands.size(); i++) {
 		delete commands[i];
 	}
 }
