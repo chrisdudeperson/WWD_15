@@ -62,28 +62,26 @@ istream& operator>> (istream& in, Program& p)
 					char b;
 					in >> ws >> b >> ws;
 					if (b != '['){
-						//Invalid repeat command
-						throw BadCommandException();
+						throw BadCommandException();	//Invalid repeat command
 					}
 					p_cmd = new Repeat(arg, in);
 				}
 				else {
 					cout << "Unrecognised command [ " << s << " ]" << endl;
 					if (!in.eof()) {
-						//Invalid command in file
-						throw BadCommandException();
+						throw BadCommandException();	//Invalid command in file
 					}
 					else {
 						cout << "EOF Reached" << endl;
 					}
 				}
+				
 				//Slice the command back to the base object and push to the vector
 				p.commands.push_back(p_cmd);
 			}
 			else {
 				if (in.fail() && s != "]") {
-					//Read failed due to bad file
-					throw BadFileException();
+					throw BadFileException();	//Read failed due to bad file
 				}
 				if (in.eof()) {
 					cout << "Finished reading file!" << endl;
