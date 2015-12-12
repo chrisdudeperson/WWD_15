@@ -1,9 +1,7 @@
 #ifndef __PROGRAM_HH__
 #define __PROGRAM_HH__
 
-#include <iostream>
 #include <vector>
-#include <map>
 
 #include "Command.hh"
 
@@ -12,11 +10,11 @@ class BadCommandException{};
 
 class Program{
 private:
-    std::vector<Command *> commands;
+    std::vector<Command*> commands;
 
 public:
-	//Default constructor
-	Program();
+	//Default constructor, inlined
+    Program(){};
 
 	//Destructor
 	~Program();
@@ -24,6 +22,7 @@ public:
 	//Executes each command in turn
 	void run();
 
+    //Read commands into dynamicly allocated memory and store pointers to each command in the commands vector
     friend std::istream& operator>> (std::istream& in, Program& p);
 };
 

@@ -6,12 +6,11 @@
 #include "Rotate.hh"
 #include "Translate.hh"
 
-using namespace std;
-
-//Default constructor
-Program::Program()
-{
-}
+using std::string;
+using std::istream;
+using std::cout;
+using std::ws;
+using std::endl;
 
 //Destructor
 Program::~Program()
@@ -37,13 +36,13 @@ istream& operator>> (istream& in, Program& p)
 	while (!in.eof() && s != "]") {
 		in >> ws >> s >> ws;
 
-		if (s != "]") {
-			in >> ws >> arg >> ws;
+		if (s != "]") { // ] signifies end of repeat commands
+            in >> ws >> arg >> ws;
 
-			if (!in.fail()) {
+            if (!in.fail()) { //Dynamicly create memory for each command then create a Command* to it
 				if (s == "FORWARD") {
 					cout << "FOWARD [" << arg << "]" << endl;
-					p_cmd = new Translate(arg, true);
+					p_cmd = new Translate(arg, true); //true tells
 				}
 				else if (s == "JUMP") {
 					cout << "JUMP [" << arg << "]" << endl;
@@ -76,7 +75,7 @@ istream& operator>> (istream& in, Program& p)
 					}
 				}
 				
-				//Slice the command back to the base object and push to the vector
+				//Push the Command pointer to the vector
 				p.commands.push_back(p_cmd);
 			}
 			else {
