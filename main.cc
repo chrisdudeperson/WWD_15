@@ -7,7 +7,9 @@
 #include "Rotate.hh"
 #include "Program.hh"
 
-using namespace std;
+using std::ifstream;
+using std::cout;
+using std::endl;
 
 Program P;
 
