@@ -4,11 +4,13 @@
 class Command
 {
 protected:
+	// Contains the value associated with a generic command
 	double arg;
 
 public:
-	Command(double arg) : arg(arg){};
-	virtual ~Command(){};
+	// Initialises arg
+	Command(double arg) : arg(arg) {};
+	virtual ~Command() {};
 	virtual void exec() = 0;
 };
 
