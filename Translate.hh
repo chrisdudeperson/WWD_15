@@ -6,10 +6,11 @@
 class Translate: public Command
 {
 	private:
-		bool draw;
+        // Draw variable defines if this class performs a draw or a jump
+        bool draw;
 
-    public:
-            Translate(double arg, bool d);
+    public:     
+        Translate(double arg, bool d);
             ~Translate();
             void exec();
 };

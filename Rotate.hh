@@ -6,10 +6,11 @@
 class Rotate : public Command
 {
 	private:
-		bool left;
+        // Left variable defines if this class performs a left rotation or a right rotation
+        bool left;
 
 	public:
-		Rotate(double arg, bool d);
+		Rotate(double arg, bool l);
 		~Rotate();
 		void exec();
 };
