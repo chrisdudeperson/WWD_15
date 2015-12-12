@@ -21,6 +21,7 @@ Program::~Program()
 	}
 }
 
+//Executes each command in turn
 void Program::run()
 {
 	for (int i(0); i<commands.size(); i++) {
@@ -28,6 +29,7 @@ void Program::run()
 	}
 }
 
+//Read commands into dynamicly allocated memory and store pointers to each command in the commands vector
 istream& operator>> (istream& in, Program& p)
 {
 	string s;

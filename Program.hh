@@ -22,8 +22,8 @@ public:
 	//Executes each command in turn
 	void run();
 
-    //Read commands into dynamicly allocated memory and store pointers to each command in the commands vector
-    friend std::istream& operator>> (std::istream& in, Program& p);
+	//Read commands into dynamicly allocated memory and store pointers to each command in the commands vector
+	friend std::istream& operator>> (std::istream& in, Program& p);
 };
 
 #endif /*__PROGRAM_HH__*/
