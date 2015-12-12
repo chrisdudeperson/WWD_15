@@ -40,7 +40,7 @@ istream& operator>> (istream& in, Program& p)
 		if (s != "]") { // ] signifies end of repeat commands
             in >> ws >> arg >> ws;
 
-            if (!in.fail()) { //Dynamicly create memory for each command then create a Command* to it
+            if (!in.fail()) { // Dynamicly create memory for each command then create a Command* to it
 				if (s == "FORWARD") {
 					cout << "FOWARD [" << arg << "]" << endl;
 					p_cmd = new Translate(arg, true); //true tells
@@ -76,7 +76,7 @@ istream& operator>> (istream& in, Program& p)
 					}
 				}
 				
-				//Push the Command pointer to the vector
+				// Push the Command pointer to the vector
 				p.commands.push_back(p_cmd);
 			}
 			else {
