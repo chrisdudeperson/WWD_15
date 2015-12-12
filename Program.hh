@@ -14,7 +14,7 @@ private:
 
 public:
 	//Default constructor, inlined
-    Program(){};
+	Program(){};
 
 	//Destructor
 	~Program();
