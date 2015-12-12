@@ -4,9 +4,10 @@
 #include "Command.hh"
 #include "Program.hh"
 
-class Repeat :  public Command
+class Repeat : public Command
 {
 	private:
+		// Program object for executing the contents of the repeat command
 		Program prog;
 
 	public:
