@@ -8,14 +8,15 @@
 
 using namespace std;
 
-//Default constructor
+// Default constructor
 Program::Program()
 {
 }
 
-//Destructor
+// Destructor
 Program::~Program()
 {
+	// Iterates through commands and deletes eahc element
 	for (int i(0); i < commands.size(); i++) {
 		delete commands[i];
 	}
@@ -62,26 +63,26 @@ istream& operator>> (istream& in, Program& p)
 					char b;
 					in >> ws >> b >> ws;
 					if (b != '['){
-						throw BadCommandException();	//Invalid repeat command
+						throw BadCommandException();	// Invalid repeat command
 					}
 					p_cmd = new Repeat(arg, in);
 				}
 				else {
 					cout << "Unrecognised command [ " << s << " ]" << endl;
 					if (!in.eof()) {
-						throw BadCommandException();	//Invalid command in file
+						throw BadCommandException();	// Invalid command in file
 					}
 					else {
 						cout << "EOF Reached" << endl;
 					}
 				}
 				
-				//Slice the command back to the base object and push to the vector
+				// Slice the command back to the base object and push to the vector
 				p.commands.push_back(p_cmd);
 			}
 			else {
 				if (in.fail() && s != "]") {
-					throw BadFileException();	//Read failed due to bad file
+					throw BadFileException();	// Read failed due to bad file
 				}
 				if (in.eof()) {
 					cout << "Finished reading file!" << endl;
