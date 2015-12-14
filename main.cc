@@ -3,8 +3,6 @@
 #include <string>
 
 #include "window.h"
-#include "Translate.hh"
-#include "Rotate.hh"
 #include "Program.hh"
 
 using std::ifstream;

@@ -2,6 +2,7 @@
 #include <string>
 
 #include "Program.hh"
+#include "Command.hh"
 #include "Repeat.hh"
 #include "Rotate.hh"
 #include "Translate.hh"
