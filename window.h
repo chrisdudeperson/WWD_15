@@ -1,7 +1,7 @@
 #ifndef __WINDOW_H__
 #define __WINDOW_H__
 
-#include <GL/gl.h>     // The GL Header File
+//#include <GL/gl.h>     // The GL Header File
 #include <GL/glut.h>   // The GL Utility Toolkit (Glut) Header
 #include <stdlib.h>
 

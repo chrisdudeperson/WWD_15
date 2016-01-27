@@ -39,7 +39,7 @@ istream& operator>> (istream& in, Program& p)
 
 	while (!in.eof() && s != "]") {
 		in >> ws >> s >> ws;
-
+		 
 		if (s != "]") { // ] signifies end of repeat commands
 			in >> ws >> arg >> ws;
 
